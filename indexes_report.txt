@@ -1,0 +1,28 @@
+
+Index: idx_sessions_tutor_subject_date
+- Columns: tutor_id, subject_id, date
+- Purpose: Speeds up filtering for report generation based on tutor, subject, and date range.
+- Query Benefit: Used in the `/api/report` endpoint and filter functionality on the frontend.
+- Performance Impact: Avoids full table scan by narrowing down rows using the index.
+
+Index: idx_sessions_student
+- Column: student_id
+- Purpose: Optimizes retrieval of sessions for a specific student.
+- Query Benefit: Helps when filtering sessions by student in the frontend.
+- Performance Impact: Fast lookup of sessions associated with a student.
+
+Index: idx_tutors_name
+- Column: name (in `tutor` table)
+- Purpose: Speeds up name-based queries or dropdown population in the UI.
+- Query Benefit: Improves performance of dropdown loading and lookup by name.
+- Performance Impact: Helps when mapping names to IDs or searching by name.
+
+Index Types in SQLite
+
+SQLite uses B+ Tree indexes for all standard CREATE INDEX statements, including the ones used in this project.
+B+ Trees are ideal for:
+- Range scans (e.g., `date BETWEEN '2024-01-01' AND '2025-12-31'`)
+- Multi-column filtering and sorting
+
+This structure ensures efficient read access even on large tables.
+By contrast, hash indexes are faster for exact matches but cannot support range queries or multi-column ordering. SQLite does not support hash indexes by default.

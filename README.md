@@ -1,4 +1,4 @@
-# 🛠How to Run the Tutoring Session Manager App
+# How to Run the Tutoring Session Manager App
 
 This guide explains how to set up and run both the **Flask backend** and **React frontend** for the Tutoring Session Manager project.
 

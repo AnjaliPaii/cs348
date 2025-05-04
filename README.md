@@ -48,10 +48,7 @@ This guide explains how to set up and run both the **Flask backend** and **React
    npm run dev
    ```
 
-4. **Click the local link (usually)**
-   ```
-   http://localhost:5173
-   ```
+4. **Click the local link**
 
 ---
 
